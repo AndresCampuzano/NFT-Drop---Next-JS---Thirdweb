@@ -31,9 +31,10 @@ const transitions = {
 
 interface dataFormProps{
     logout: () => void
+    joinAllowList: () => void
 }
 
-export const Header = ({logout}: dataFormProps) => {
+export const Header = ({ logout, joinAllowList }: dataFormProps) => {
   return (
       <header className={styles.wrapper}>
           <Logo />
@@ -53,6 +54,13 @@ export const Header = ({logout}: dataFormProps) => {
                   <Transition as={Fragment} enter={transitions.menuEnter} enterFrom={transitions.menuEnterFrom} enterTo={transitions.menuEnterTo} leave={transitions.menuLeave} leaveFrom={transitions.menuLeaveFrom} leaveTo={transitions.menuLeaveTo}>
                     <Menu.Items className={styles.menuItems}>
                         <div className={styles.menuItemsContainer}>
+                            <Menu.Item>
+                                {({active}) => (
+                                    <button onClick={joinAllowList} className={classNames(active ?  styles.buttonActive : styles.buttonInactive, styles.menuItem)}>
+                                        Join allow list
+                                    </button>
+                                )}
+                            </Menu.Item>
                             <Menu.Item>
                                 {({active}) => (
                                     <button onClick={logout} className={classNames(active ?  styles.buttonActive : styles.buttonInactive, styles.menuItem)}>
