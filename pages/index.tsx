@@ -1,10 +1,9 @@
 import type { NextPage } from 'next'
-// import Head from 'next/head'
-// import Image from 'next/image'
 import {useAddress, useDisconnect, useMetamask} from "@thirdweb-dev/react";
 import {Login} from "../components/Login";
 import {Header} from "../components/Header";
 import {Hero} from "../components/Hero";
+import {NFTDisplay} from "../components/NFTDisplay";
 
 
 const styles = {
@@ -31,12 +30,12 @@ const Home: NextPage = () => {
               <section className={styles.infoSection}>
                 <Header logout={disconnect} />
                 <div className={styles.mobileDisplaySection}>
-                  NFT Display
+                  <NFTDisplay />
                 </div>
                 <Hero />
               </section>
-              <section>
-                NFT Display
+              <section className={styles.desktopDisplaySection}>
+                <NFTDisplay />
               </section>
             </div>
           </div>
